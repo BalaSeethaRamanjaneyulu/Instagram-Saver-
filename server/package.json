@@ -1,0 +1,16 @@
+{
+  "name": "instagram-saver-server",
+  "version": "1.0.0",
+  "description": "WebSocket server for Instagram Saver cross-device system",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["websocket", "instagram", "content-saver"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "ws": "^8.16.0"
+  }
+}

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Saver</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 320px;
+            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #6B46C1 0%, #9333EA 100%);
+            color: white;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .status-section {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .status-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .status-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .status-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .status-value {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #EF4444;
+        }
+
+        .status-dot.connected {
+            background: #10B981;
+            box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+        }
+
+        .info-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .info-label {
+            font-size: 12px;
+            opacity: 0.7;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            font-size: 13px;
+            word-break: break-all;
+            line-height: 1.4;
+        }
+
+        .server-input {
+            width: 100%;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            color: white;
+            font-size: 13px;
+            font-family: inherit;
+            margin-bottom: 10px;
+        }
+
+        .server-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .button {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .button:active {
+            transform: scale(0.98);
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 11px;
+            opacity: 0.6;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="title">📱 Instagram Saver</div>
+        <div class="subtitle">Cross-Device Content Curation</div>
+    </div>
+
+    <div class="status-section">
+        <div class="status-row">
+            <span class="status-label">Server</span>
+            <div class="status-value">
+                <span class="status-dot" id="statusDot"></span>
+                <span id="statusText">Checking...</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <div class="info-label">Current Page</div>
+        <div class="info-value" id="currentUrl">Loading...</div>
+    </div>
+
+    <div class="info-section">
+        <div class="info-label">Platform</div>
+        <div class="info-value" id="platformInfo">Detecting...</div>
+    </div>
+
+    <input type="text" class="server-input" id="serverUrl" placeholder="ws://localhost:8080">
+
+    <button class="button" id="testBtn">Test Connection</button>
+
+    <div class="footer">
+        v1.0.0 • Made with ❤️
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>
